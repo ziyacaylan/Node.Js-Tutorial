@@ -144,3 +144,122 @@ addBook({ name: "Kitap 4", yazar: "Yazar 4" })
 ```
 
 ### Async - Await Yapısı
+
+Async - Await yapısı ES8 ile birlikte gelmiştir ve Promise yapısının daha anlaşılır bir söz dizimi ile yazılmasıdır. Bir fonksiyon async anahtar kelimesi ile birlikte tanımlanırsa, fonksiyonun olumlu sonuçlanması sonucunda bir Promise döner. Bir async fonksiyon await anahtar kelimesi ile birlikte kullanılırsa ilgili Promise olumlu bir şekilde dönene kadar async fonksiyonunun çalışması bekletilir.
+
+```
+const func = async () => {
+    let promise = new Promise((resolve,reject)=>{
+        setTimeout(()=>{resolve("Tamamlandı...!)},2000)
+    })
+
+    try{
+        let result = await promise;
+        console.log(result);
+    }catch(error){
+        console.log(error);
+    }
+
+}
+
+func();
+
+```
+
+Yukarıdaki kodu incelediğinizde result, sonucunu almak için Promise cevabının gelmesi bekleniyor. Buradaki setTimeout sonucun 2 saniye beklemesini sağlıyor. Şayet error döner ise catch bloğu içerisinde dönen hata yakalanır ve konsola bastırılır. Async-await yapılarında hata bu şekilde yakalanır.
+
+---
+
+# ÖDEVLER
+
+---
+
+### Ödev 1 - Node.JS Komut Satırı Kullanımı
+
+<details>  
+  <summary>Details</summary>
+  ### Code
+
+```js
+const arguments = process.argv.slice(2);
+//console.log(arguments);
+
+function CircleAreaCalc(radius) {
+  const pi = 3.14159265359;
+  const area = pi * Math.pow(radius, 2);
+  console.log(
+    `Yarıçapı (${radius}) olan dairenin alanı: (${parseFloat(area).toFixed(2)})`
+  );
+}
+
+CircleAreaCalc(arguments[0]);
+```
+
+## <a href="./Patika-Odev-1">Ödev Linki <<<---<a/>
+
+</details>
+
+---
+
+### Ödev 2 - Post Ekleme
+
+<details>  
+  <summary>Details</summary>
+  ### Code
+
+```js
+const myPosts = [
+  {
+    id: "1",
+    title: "Javascript",
+    body: "Lorem ipsum dolar...!",
+    date: "2023-03-24",
+  },
+  {
+    id: "2",
+    title: "Typescript",
+    body: "Lorem ipsum dolar...!",
+    date: "2023-03-24",
+  },
+  {
+    id: "3",
+    title: "TailwinsUI",
+    body: "Lorem ipsum dolar...!",
+    date: "2023-03-24",
+  },
+  {
+    id: "4",
+    title: "Material UI",
+    body: "Lorem ipsum dolar...!",
+    date: "2023-03-24",
+  },
+];
+
+const ListThePost = () => {
+  myPosts.map((post) => console.log(post));
+};
+
+const addTheNewPost = () => {
+  myPosts.push({
+    id: "5",
+    title: "Next.JS",
+    body: "Lorem ipsum dolar...!",
+    date: "2023-03-25",
+  });
+};
+
+const showThePost = async () => {
+  try {
+    await addTheNewPost();
+    ListThePost();
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+showThePost();
+```
+
+## <a href="./Patika-Odev-2">Ödev Linki <<<---<a/>
+
+</details>

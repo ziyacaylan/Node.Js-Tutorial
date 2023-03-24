@@ -1,11 +1,11 @@
 function getData(data) {
-  return new Promise((res, jej) => {
+  return new Promise((res, rej) => {
     console.log("Veriler alınmaya çalışılıyor...");
 
     if (data) {
-      return res("Veriler Alındı...");
+      res("Veriler Alındı...");
     } else {
-      return jej("Veriler Alınamadı...!");
+      rej("Veriler Alınamadı...!");
     }
   });
 }
@@ -21,3 +21,24 @@ function clearData(receivedData) {
     }
   });
 }
+
+// getData(true)
+//   .then((result) => {
+//     return clearData(false);
+//   })
+//   .then((result) => console.log(result))
+//   .catch((error) => console.log(error));
+
+// Async - Await
+
+async function processData() {
+  try {
+    const receivedData = await getData(false);
+    console.log(receivedData);
+    const cleanedData = await clearData(true);
+    console.log(cleanedData);
+  } catch (error) {
+    console.log(error);
+  }
+}
+processData();
