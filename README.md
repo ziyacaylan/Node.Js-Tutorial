@@ -270,12 +270,33 @@ showThePost();
 
 <details>  
   <summary>Details</summary>
-  ### Code
+  ### circle.js
 
 ```js
+const pi = 3.14159265359;
+const circleArea = (radius) => {
+  const area = pi * Math.pow(radius, 2);
+  console.log(`Yarıçapı ${radius} olan dairenin alanı : ${area}'dır.`);
+};
+const circleCircumference = (radius) => {
+  const circleCircumference = 2 * pi * radius;
+  console.log(
+    `Yarıçapı ${radius} olan dairenin çevresi : ${circleCircumference}'dır.`
+  );
+};
 
+module.exports = { circleArea, circleCircumference };
 ```
 
-## <a href="./Patika-Odev-2">Ödev Linki <<<---<a/>
+### index.js
+
+```js
+const { circleArea, circleCircumference } = require("./circle");
+
+circleArea(5);
+circleCircumference(5);
+```
+
+## <a href="./Patika-Odev-3">Ödev Linki <<<---<a/>
 
 </details>

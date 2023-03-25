@@ -1,4 +1,4 @@
-const { circleArea, circleCircumference } = require("./circle.js");
+const { circleArea, circleCircumference } = require("./circle");
 
 circleArea(5);
 circleCircumference(5);

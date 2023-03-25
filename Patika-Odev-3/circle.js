@@ -10,7 +10,4 @@ const circleCircumference = (radius) => {
   );
 };
 
-module.exports = {
-  circleArea,
-  circleCircumference,
-};
+module.exports = { circleArea, circleCircumference };
