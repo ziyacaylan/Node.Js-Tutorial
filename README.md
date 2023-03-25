@@ -263,3 +263,19 @@ showThePost();
 ## <a href="./Patika-Odev-2">Ödev Linki <<<---<a/>
 
 </details>
+
+---
+
+### Ödev 3 - Daire Modülü
+
+<details>  
+  <summary>Details</summary>
+  ### Code
+
+```js
+
+```
+
+## <a href="./Patika-Odev-2">Ödev Linki <<<---<a/>
+
+</details>
