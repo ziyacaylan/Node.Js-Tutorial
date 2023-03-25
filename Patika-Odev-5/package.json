@@ -1,0 +1,12 @@
+{
+  "name": "patika-odev-5",
+  "version": "1.0.0",
+  "description": "patika.dev ödevi ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "ziyacaylan",
+  "license": "ISC"
+}
