@@ -424,3 +424,61 @@ server.listen(port, () => {
 ## <a href="./Patika-Odev-5">Ödev Linki <<<---<a/>
 
 </details>
+
+---
+
+### Ödev 6 - Koa.js ile Web Sunucusu Yazımı
+
+<details>  
+  <summary>Details</summary>
+  ### package.json
+
+```json
+{
+  "name": "patika-odev-6",
+  "version": "1.0.0",
+  "description": "patika.dev",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
+  },
+  "author": "ziyacaylan",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.14.1"
+  }
+}
+```
+
+### index.js
+
+```js
+const Koa = require("koa");
+const app = new Koa();
+
+// response
+app.use((ctx) => {
+  if (ctx.path === "/") {
+    ctx.type = "text/html";
+    ctx.body = "<h1>WELCOME TO HOME PAGE...!</h1>";
+  } else if (ctx.path === "/about") {
+    ctx.type = "text/html";
+    ctx.body = "<h1>WELCOME TO ABOUT PAGE...!</h1>";
+  } else if (ctx.path === "/contact") {
+    ctx.type = "text/html";
+    ctx.body = "<h1>WELCOME TO CONTACT PAGE...!</h1>";
+  } else {
+    ctx.type = "text/html";
+    ctx.body = "<h1>404 The Page Not Found...!</h1>";
+  }
+});
+const port = 3000;
+app.listen(port, () => {
+  console.log(`Server started on ${port} port`);
+});
+```
+
+## <a href="./Patika-Odev-5">Ödev Linki <<<---<a/>
+
+</details>
