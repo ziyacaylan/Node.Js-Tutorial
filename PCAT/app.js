@@ -1,6 +1,10 @@
 const express = require("express");
+const ejs = require("ejs");
 const app = express();
 const path = require("path");
+
+// TEMLPATE ENGINE
+app.set("view engine", "ejs");
 
 // MIDDLEWARES
 // const myLogger = (req, res, next) => {
@@ -15,10 +19,18 @@ const path = require("path");
 // app.use(myLogger);
 // app.use(myLogger2);
 
+// MIDDLEWARES
 app.use(express.static("temp"));
 
+//ROUTES
 app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "temp/index.html"));
+  res.render("index");
+});
+app.get("/about", (req, res) => {
+  res.render("about");
+});
+app.get("/add", (req, res) => {
+  res.render("add");
 });
 
 const port = 3000;
