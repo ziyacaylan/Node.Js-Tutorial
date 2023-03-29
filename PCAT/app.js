@@ -1,5 +1,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
+const fileUpload = require("express-fileupload");
+const fs = require("fs");
 
 const ejs = require("ejs");
 const path = require("path");
@@ -17,13 +19,14 @@ mongoose.connect("mongodb://localhost/pcat-test-db", {
 app.set("view engine", "ejs");
 
 // MIDDLEWARES
-app.use(express.static("temp"));
+app.use(express.static("Public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(fileUpload());
 
 //ROUTES
 app.get("/", async (req, res) => {
-  const photos = await Photo.find({});
+  const photos = await Photo.find({}).sort("-dateCreated");
   res.render("index", { photos });
 });
 app.get("/photos/:id", async (req, res) => {
@@ -39,11 +42,27 @@ app.get("/add", (req, res) => {
   res.render("add");
 });
 app.post("/photos", async (req, res) => {
-  await Photo.create(req.body);
-  console.log(req.body);
-  res.redirect("/");
-});
+  // console.log(req.files.image);
+  //await Photo.create(req.body);
+  //res.redirect("/");
 
+  const uploadDir = "public/uploads";
+
+  if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+  }
+
+  let uploadeImage = req.files.image;
+  let uploadPath = __dirname + "/public/uploads/" + uploadeImage.name;
+
+  uploadeImage.mv(uploadPath, async () => {
+    await Photo.create({
+      ...req.body,
+      image: "/uploads/" + uploadeImage.name,
+    });
+    res.redirect("/");
+  });
+});
 const port = 3000;
 
 app.listen(port, () => {
