@@ -17,19 +17,6 @@ mongoose.connect("mongodb://localhost/pcat-test-db", {
 app.set("view engine", "ejs");
 
 // MIDDLEWARES
-// const myLogger = (req, res, next) => {
-//   console.log("Middleware Log 1");
-//   next();
-// };
-
-// const myLogger2 = (req, res, next) => {
-//   console.log("Middleware Log 2");
-//   next();
-// };
-// app.use(myLogger);
-// app.use(myLogger2);
-
-// MIDDLEWARES
 app.use(express.static("temp"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -46,9 +33,8 @@ app.get("/add", (req, res) => {
   res.render("add");
 });
 app.post("/photos", async (req, res) => {
-  //res.render("add");
-  // console.log(req.body);
   await Photo.create(req.body);
+  console.log(req.body);
   res.redirect("/");
 });
 
