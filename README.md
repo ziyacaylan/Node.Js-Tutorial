@@ -1,5 +1,16 @@
 # Node.Js Dersleri
 
+---
+
+### Eğitim içeriğindeki proje Demo linkleri
+
+- PCAT Demo : https://pcat-h7dn.onrender.com
+- Clean Blog Demo :
+
+#### Görseller için aşağıya bakınız...!
+
+---
+
 ## Node.JS Nedir ?
 
 Node.js, açık kaynaklı bir çalışma zamanı ortamıdır ve özellikle sunucu taraflı uygulama geliştirme için kullanılır. JavaScript dilini kullanarak yüksek performanslı, ölçeklenebilir ve verimli ağ uygulamaları oluşturmayı sağlar.
@@ -195,8 +206,6 @@ function CircleAreaCalc(radius) {
 CircleAreaCalc(arguments[0]);
 ```
 
-## <a href="./Patika-Odev-1">Ödev Linki <<<---<a/>
-
 </details>
 
 ---
@@ -260,8 +269,6 @@ const showThePost = async () => {
 showThePost();
 ```
 
-## <a href="./Patika-Odev-2">Ödev Linki <<<---<a/>
-
 </details>
 
 ---
@@ -296,8 +303,6 @@ const { circleArea, circleCircumference } = require("./circle");
 circleArea(5);
 circleCircumference(5);
 ```
-
-## <a href="./Patika-Odev-3">Ödev Linki <<<---<a/>
 
 </details>
 
@@ -365,8 +370,6 @@ unlink("./employees.json", (err) => {
 });
 ```
 
-## <a href="./Patika-Odev-4">Ödev Linki <<<---<a/>
-
 </details>
 
 ---
@@ -420,8 +423,6 @@ server.listen(port, () => {
   console.log(`Sunucu port: ${port} de başlatıldı...`);
 });
 ```
-
-## <a href="./Patika-Odev-5">Ödev Linki <<<---<a/>
 
 </details>
 
@@ -479,6 +480,10 @@ app.listen(port, () => {
 });
 ```
 
-## <a href="./Patika-Odev-5">Ödev Linki <<<---<a/>
-
 </details>
+
+---
+
+## Değer ödevler için klasörlere göz atabilirsiniz...
+
+---

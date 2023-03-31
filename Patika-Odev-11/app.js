@@ -29,10 +29,13 @@ import {
 const app = express();
 
 //connect DB
-mongoose.connect("mongodb://localhost/cleanblog-test-db", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(
+  "mongodb+srv://ziyacaylan:NDRfzzXib8DkDoG8@cluster0.mcsg4ut.mongodb.net/?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  }
+);
 
 //TEMPLATE ENGINE
 app.set("view engine", "ejs");
@@ -54,7 +57,7 @@ app.get("/add_post", getAddPage);
 app.post("/add", createPost);
 app.get("/edit_post/:id", getEditPage);
 
-const port = 3000;
+const port = process.env.port || 3000;
 
 app.listen(port, () => {
   console.log(`Sunucu ${port} portunda başlatıldı..`);
